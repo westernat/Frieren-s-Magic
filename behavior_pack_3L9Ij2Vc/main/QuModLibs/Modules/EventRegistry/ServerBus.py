@@ -26,7 +26,13 @@ class _ENGINE_ATTR_JMP(object):
         newType.__name__ = item
         return newType
 
-GameEvents = _ENGINE_ATTR_JMP()    # type: _EventsIMP
+def _events():
+    """
+    :rtype: _EventsIMP
+    """
+    return _ENGINE_ATTR_JMP()
+
+GameEvents = _events()
 
 def _parseEventClass(func):
     return getattr(func, "func_defaults")[0].__class__
